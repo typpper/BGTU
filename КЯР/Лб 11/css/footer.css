@@ -1,0 +1,11 @@
+footer {
+  grid-area: footer;
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
+footer h3 {
+  text-align: center;
+}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE information [
+  <!ELEMENT information (topic+)>
+  <!ELEMENT topic (title, content)>
+  <!ELEMENT title (#PCDATA)>
+  <!ELEMENT content (#PCDATA)>
+
+  <!ENTITY blueColor "blue">
+  <!ENTITY greenColor "green">
+]>
+<information>
+    <topic>
+        <title style="color: &blueColor;">Заголовок темы</title>
+        <content style="color: &greenColor;">Содержание темы</content>
+    </topic>
+    <topic>
+        <title style="color: &blueColor;">Заголовок темы</title>
+        <content style="color: &greenColor;">Содержание темы</content>
+    </topic>
+</information>

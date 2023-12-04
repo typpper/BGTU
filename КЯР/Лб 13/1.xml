@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="1.xsl"?>
+<body>
+    <people>
+        <name>Дарья</name>
+        <surname>Домрачева</surname>
+        <type>Биатлон</type>
+        <awards>Олимпийское золото 2014</awards>
+    </people>
+    <people>
+        <name>Алла</name>
+        <surname>Цупер</surname>
+        <type>Фристайл</type>
+        <awards>Олимпийское золото 2014</awards>
+    </people>
+    <people>
+        <name>Антон</name>
+        <surname>Кушнир</surname>
+        <type>Фристайл</type>
+        <awards>Олимпийское золото 2014</awards>
+    </people>
+</body>
