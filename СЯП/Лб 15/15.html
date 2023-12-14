@@ -16,8 +16,8 @@
       letter-spacing: 1px;
       font-weight: 600;
       color: black;
-      background: darkorchid;
-      box-shadow: 0 8px 15px darkorchid;
+      background: yellowgreen;
+      box-shadow: 0 8px 15px yellowgreen;
     }
   </style>
 </head>
@@ -37,10 +37,11 @@
     }
 
     function z3() {
-      var a = ' <a>Aliqua ea tempor dolar.</a> '
-      a = a.replace(/<(.*?)>/, '<textarea>')
-      alert(a)
+      var a = ' <a>Aliqua ea tempor dolar.</a> <a>Каир</a> <a>Мальдивы</a>';
+      a = a.replace(/<a>/g, '<textarea>');
+      alert(a);
     }
+
 
     function z4() {
       var a = 'Some,text';
@@ -56,7 +57,7 @@
     }
     function z6() {
       const b = { secondname: "Babashinskii", name: 'Hleb' }
-      const a = { ...b, namme: "Hleb", otch: "Babashinskii", age: 18 }
+      const a = { ...b, namme: "Hleb", otch: "Aleksandrovich", age: 18 }
       const { otch, namme, ...rest } = a;
       console.log(rest);
     }
