@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 #include <fstream>
 #include <vector>
 #include <ctime>
@@ -54,6 +54,14 @@ public:
         }
     }
 
+    size_t getRemindersCount() const {
+        return reminders.size();
+    }
+
+    const vector<Reminder>& getReminders() const {
+        return reminders;
+    }
+
 private:
     vector<Reminder> reminders;
 };
@@ -65,7 +73,6 @@ int main() {
 
     ReminderManager manager;
 
-    // Пример использования:
     manager.loadFromFile("reminders.txt");
 
     int choice;
@@ -82,7 +89,12 @@ int main() {
         case 1: {
             Reminder reminder;
             cout << "Введите дату и время (ГГГГ-ММ-ДД ЧЧ:ММ): ";
-            cin >> get_time(&reminder.datetime, "%Y-%m-%d %H:%M");
+            if (!(cin >> get_time(&reminder.datetime, "%Y-%m-%d %H:%M"))) {
+                cout << "Неверный ввод. Введите дату и время в правильном формате." << endl;
+                cin.clear();
+                cin.ignore(INT_MAX, '\n');
+                break;
+            }
             cout << "Введите содержимое напоминания: ";
             cin.ignore();
             getline(cin, reminder.text);
@@ -93,9 +105,20 @@ int main() {
             int index;
             cout << "Выберите индекс напоминания для изменения: ";
             cin >> index;
+
+            if (index < 1 || index > manager.getReminders().size()) {
+                cout << "Неверный индекс. Пожалуйста, выберите корректный индекс." << endl;
+                break;
+            }
+
             Reminder reminder;
             cout << "Введите дату и время (ГГГГ-ММ-ДД ЧЧ:ММ): ";
-            cin >> get_time(&reminder.datetime, "%Y-%m-%d %H:%M");
+            if (!(cin >> get_time(&reminder.datetime, "%Y-%m-%d %H:%M"))) {
+                cout << "Неверный ввод. Введите дату и время в правильном формате." << endl;
+                cin.clear();
+                cin.ignore(INT_MAX, '\n');
+                break;
+            }
             cout << "Введите новый текст напоминания: ";
             cin.ignore();
             getline(cin, reminder.text);
@@ -106,6 +129,12 @@ int main() {
             int index;
             cout << "Введите индекс для удаления напоминания: ";
             cin >> index;
+
+            if (index < 1 || index > manager.getReminders().size()) {
+                cout << "Неверный индекс. Пожалуйста, выберите корректный индекс." << endl;
+                break;
+            }
+
             manager.deleteReminder(index - 1);
             break;
         }
