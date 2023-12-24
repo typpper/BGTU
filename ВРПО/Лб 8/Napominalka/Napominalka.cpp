@@ -1,9 +1,10 @@
-﻿#include <iostream>
+#include <iostream>
 #include <fstream>
 #include <vector>
 #include <ctime>
 #include <iomanip>
 #include <string>
+#include <windows.h>
 
 using namespace std;
 
@@ -58,6 +59,10 @@ private:
 };
 
 int main() {
+    setlocale(LC_ALL,"Rus");
+    SetConsoleCP(1251);
+    SetConsoleOutputCP(1251);
+
     ReminderManager manager;
 
     // Пример использования:
@@ -65,20 +70,20 @@ int main() {
 
     int choice;
     do {
-        cout << "1. Add Reminder\n";
-        cout << "2. Edit Reminder\n";
-        cout << "3. Delete Reminder\n";
-        cout << "4. Show Reminders\n";
-        cout << "0. Exit\n";
-        cout << "Enter your choice: ";
+        cout << "1. Добавить напоминание\n";
+        cout << "2. Редактировать напоминание\n";
+        cout << "3. Удалить напоминание\n";
+        cout << "4. Показать все напоминания\n";
+        cout << "0. Выход\n";
+        cout << "Введите свой выбор: ";
         cin >> choice;
 
         switch (choice) {
         case 1: {
             Reminder reminder;
-            cout << "Enter date and time (YYYY-MM-DD HH:MM): ";
+            cout << "Введите дату и время (ГГГГ-ММ-ДД ЧЧ:ММ): ";
             cin >> get_time(&reminder.datetime, "%Y-%m-%d %H:%M");
-            cout << "Enter reminder text: ";
+            cout << "Введите содержимое напоминания: ";
             cin.ignore();
             getline(cin, reminder.text);
             manager.addReminder(reminder);
@@ -86,12 +91,12 @@ int main() {
         }
         case 2: {
             int index;
-            cout << "Enter index of reminder to edit: ";
+            cout << "Выберите индекс напоминания для изменения: ";
             cin >> index;
             Reminder reminder;
-            cout << "Enter date and time (YYYY-MM-DD HH:MM): ";
+            cout << "Введите дату и время (ГГГГ-ММ-ДД ЧЧ:ММ): ";
             cin >> get_time(&reminder.datetime, "%Y-%m-%d %H:%M");
-            cout << "Enter new reminder text: ";
+            cout << "Введите новый текст напоминания: ";
             cin.ignore();
             getline(cin, reminder.text);
             manager.editReminder(index - 1, reminder);
@@ -99,7 +104,7 @@ int main() {
         }
         case 3: {
             int index;
-            cout << "Enter index of reminder to delete: ";
+            cout << "Введите индекс для удаления напоминания: ";
             cin >> index;
             manager.deleteReminder(index - 1);
             break;
