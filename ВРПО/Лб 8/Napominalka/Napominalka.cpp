@@ -144,7 +144,11 @@ int main() {
         case 4:
             manager.showReminders();
             break;
+
+        default:
+            cout << "Неправильный выбор. Пожалуйста, выберите существующий вариант." << endl;
         }
+
     } while (choice != 0);
 
     manager.saveToFile("reminders.txt");
