@@ -35,6 +35,9 @@ public:
         for (size_t i = 0; i < reminders.size(); ++i) {
             cout << "[" << i + 1 << "] " << "Date: " << put_time(&reminders[i].datetime, "%Y-%m-%d %H:%M") << " - " << reminders[i].text << endl;
         }
+
+        if (reminders.size() == 0) { cout << "У вас ещё нет ни одного напоминания.\n"; }
+
     }
 
     void saveToFile(const string& filename) const {
