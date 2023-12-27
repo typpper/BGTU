@@ -1,4 +1,4 @@
-﻿#include <iostream>
+#include <iostream>
 #include <fstream>
 #include <vector>
 #include <ctime>
@@ -70,7 +70,7 @@ private:
 };
 
 int main() {
-    setlocale(LC_ALL,"Rus");
+    setlocale(LC_ALL, "Rus");
     SetConsoleCP(1251);
     SetConsoleOutputCP(1251);
 
@@ -110,7 +110,7 @@ int main() {
             cin >> index;
 
             if (index < 1 || index > manager.getReminders().size()) {
-                cout << "Неверный индекс. Пожалуйста, выберите корректный индекс." << endl;
+                cout << "Неверный индекс напоминания или такого напоминания не существует. Пожалуйста, выберите корректный индекс." << endl;
                 break;
             }
 
@@ -134,7 +134,7 @@ int main() {
             cin >> index;
 
             if (index < 1 || index > manager.getReminders().size()) {
-                cout << "Неверный индекс. Пожалуйста, выберите корректный индекс." << endl;
+                cout << "Неверный индекс напоминания или такого напоминания не существует. Пожалуйста, выберите корректный индекс." << endl;
                 break;
             }
 
@@ -145,9 +145,14 @@ int main() {
             manager.showReminders();
             break;
 
+        case 0:
+            cout << "Программа завершена." << endl;
+            break; 
+
         default:
-            cout << "Неправильный выбор. Пожалуйста, выберите существующий вариант." << endl;
-        }
+                cout << "Неправильный выбор. Пожалуйста, выберите существующий вариант." << endl;
+    }
+
 
     } while (choice != 0);
 
